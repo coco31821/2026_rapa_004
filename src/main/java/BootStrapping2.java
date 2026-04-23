@@ -6,18 +6,15 @@ import java.util.Map;
 
 public class BootStrapping2 {
 
-    void main(){
+    void main() {
 
-        // persistence unit와 비슷한 role
-        // java bean방식으로도 초기화 가능
         PersistenceConfiguration cfg =
                 new PersistenceConfiguration("hibernate-exp")
-                        .property(PersistenceConfiguration.JDBC_DRIVER,"org.h2.Driver")
-                        .property(PersistenceConfiguration.JDBC_URL,"jdbc:h2:mem:test-db")
-                        .property(PersistenceConfiguration.JDBC_USER,"sa")
-                        .property(PersistenceConfiguration.JDBC_PASSWORD,"")
+                        .property(PersistenceConfiguration.JDBC_DRIVER, "org.h2.Driver")
+                        .property(PersistenceConfiguration.JDBC_URL, "jdbc:h2:mem:test-db")
+                        .property(PersistenceConfiguration.JDBC_USER, "sa")
+                        .property(PersistenceConfiguration.JDBC_PASSWORD, "")
                 ;
-
 
         EntityManagerFactory emf = cfg.createEntityManagerFactory();
 
@@ -32,8 +29,11 @@ public class BootStrapping2 {
                 .properties(configMap);
 
         EntityManagerFactory emf2 = config2.createEntityManagerFactory();
-    }
 
+    }
 
 }
 
+
+// persistence unit와 비슷한 role
+// java bean방식으로도 초기화 가능
