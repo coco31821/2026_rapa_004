@@ -21,7 +21,7 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus= OrderStatus.ORDERED;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<OrderItem> items = new ArrayList<>();
 
 
@@ -42,6 +42,11 @@ public class Order {
     }
 
 
+
+    public void addOrderItem(OrderItem oi){
+        this.items.add(oi);
+        this.orderStatus= orderStatus;
+    }
 
     /*
     Getter and Setter
