@@ -2,6 +2,7 @@ package model.s03;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,7 +16,7 @@ public class Category {
     private String name;
 
     @ManyToMany(mappedBy = "categories")
-    private List<Product> products;
+    private List<Product> products = new ArrayList<>();
 
     /*
     생성자

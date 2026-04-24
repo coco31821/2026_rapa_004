@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.ManyToAny;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -32,7 +33,7 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    List<Category> categories;
+    List<Category> categories = new ArrayList<>();
 
 
     /*
